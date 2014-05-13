@@ -1,10 +1,9 @@
 package magicJavaAdventure;
 
-public class runner {
+public class mainMenu {
 
 	public static void main(String[] args) {
 		
 
 	}
-
 }
