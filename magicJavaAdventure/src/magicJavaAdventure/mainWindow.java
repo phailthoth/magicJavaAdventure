@@ -1,10 +1,8 @@
 package magicJavaAdventure;
-import package images.background;
-import magicJavaAdventure;
+import java.io.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -13,10 +11,9 @@ import java.io.IOException;
 
 public class mainWindow {
 	private int backgroundNum = 0;
-	private JFrame frame;
-	private BufferedImage img;
-	JLabel background = new JLabel(new ImageIcon(img));
-
+	private static JFrame frame;
+	static JLabel background = new JLabel(new ImageIcon());
+	static Panel panel = new Panel();
 	/**
 	 * Launch the application.
 	 */
@@ -26,6 +23,8 @@ public class mainWindow {
 				try {
 					mainWindow window = new mainWindow();
 					window.frame.setVisible(true);
+					frame.add(panel);
+					panel.add(background);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,36 +45,10 @@ public class mainWindow {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
-		// we're doing 800x600, right?
+		// we're doing 800x600
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	
-	// Background setter starts. 
-	
-	public void setBackground(){
-		if(backgroundNum == 1){
-			try {
-				img = ImageIO.read(new File("/treetrail.jpg"));
-				background = (ImageIcon(img));
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		else if(backgroundNum == 2){
-			try {
-				img = ImageIO.read(new File("/river.jpg"));
-				background = (ImageIcon(img));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	
-	
-	// Background setter ends here.
+	ImageIcon icon = new ImageIcon("/magicJavaAdventureresources/treetrail.jpg");
 
 }
