@@ -1,0 +1,94 @@
+// Background image of house on fire
+
+[ Ask for player name. ]
+
+Speaker: None
+	[ Fire crackles, burns, and eats up everything around you ]
+
+Speaker: Player
+	Mom? Dad? [ cough ] Where are you?
+
+Speaker: None
+	[ You run out the door, hoping to find your parents. However, you don't see them. ]
+
+Speaker: Player
+	MOM? DAD?
+
+Speaker: None
+	[ You look around frantically, continually looking for them but can't. ]
+	[ You kneel down, sobbing woefully at your loss. ]
+	[ Suddenly, you hear a voice calling your name. ]
+	[ You turn around, and see your mom. ]
+
+Speaker: Mom
+	[Player Name] ! 
+
+Speaker: Player
+	Mom !
+
+Speaker: None
+	[ You run towards your mom, back inside of the house. ]
+	[ Suddenly, a burning pillar breaks from the ceiling, above you, and crushes your mother. ]
+
+Speaker: Player
+	MOM ! 
+
+Speaker: Mom
+	Leave me, [Player Name]! Live for your own life!
+
+Speaker: None
+	CHOICES:
+		[ You accept your mother's choice, and leave her behind. ]
+			[ More debris suddenly fall behind you, blocking your way out through the front door. ]
+			[ You decide to run down the hallway. ]
+			[ You see two ways to go out: ]
+			CHOICES 2:
+				[ Go down the basement, run through, and exit through the underground escape route. ]
+					[ Go to path 2 ]
+				[ Go to the Kitchen, and go out through the backdoor ]
+					[ Go to path 1 ]
+			
+		[ You try to help your mother out of the burning debris that is crushing her. ]
+			[ Go to Path 3 ]
+
+
+Path 1 ( Force Magics ) :
+
+Path 2 ( Light Manipulation ) : 
+
+Path 3 ( Elemental Manipulation ) :
+
+Speaker: Player
+	No! I'm not leaving you!
+
+Speaker: None
+	[ You shove your hand below the flaming wood beam. ]
+	[ As you attempt to lift it off your mom's body, the fire begins to creep up your arms ]
+
+Speaker: Mom
+	No! [Player Name], I told you to leave me! Be a good child and leave me!
+
+Speaker: None
+	[ Fire continues to climb up your arm, and reaches towards your neck. ]
+	[ You manage to uncover half of your mother's body ]
+	[ You look down and stare at your mom's body. Burned, crushed. Your eyes move to her face, her eyes looking at your flaming arms, in complete fear. ]
+
+Speaker: Mom
+	Get away! Leave me already! Why can't you be a good child and leave me behind.
+
+Speaker: Player
+	No, I refuse to leave you behind! 
+
+Speaker: None
+	[ You stare down at your flame covered arms, and quickly bite down into the flames. ]
+	[ After biting off a peice, you begin to eat the flames off of your arms, piece by piece until they're completely gone. ]
+	[ You continue to lift off the pillar of wood off of your mother, until it's completely off her, and toss the pillar to the side. ]
+	[ You look down, and your mom has fainted, her body unable to withstand anymore pain. ]
+	[ You pick up your mother, and quickly take her out of the house from the front door, behind you. ]
+
+Speaker: Player
+	[ Sigh ] I need to find a place to get mom somewhere. Everyone is so far away!
+	Why did we have to live in the middle of nowhere?
+
+Speaker: None
+	[ You slam your first against the rock next to you, but as you a flame bursts out from your fist and dissipates into the air around you. ]
