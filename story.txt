@@ -2,7 +2,7 @@
 
 [ Ask for player name. ]
 
-Speaker: None
+Speaker: None // leave as blank
 	[ Fire crackles, burns, and eats up everything around you ]
 
 Speaker: Player
@@ -54,7 +54,21 @@ Speaker: None
 
 Path 1 ( Force Magics ) :
 
+
+
 Path 2 ( Light Manipulation ) : 
+
+// change background to a near black basement
+
+Speaker: Player
+	( sigh ) I wish it weren't so dark down here. 
+
+Speaker: None
+	[ Suddenly, you have an image of yourself holding your hands close together, channeling a ball of light between them. ]
+	[ As your general impulsive self, you decide to do the same, despite the unrealisticness of it. ]
+	[ Just as in the image of your head, you decide to bring your hands together, creating a sphere in the palms of your hand. ]
+	[ As if by magic, a ball of light materalizes in your hand, whisping around. ]
+	[ Using this light, you run out of the basement, through the underground escape, leaving your parents and your house behind. ]
 
 Path 3 ( Elemental Manipulation ) :
 
@@ -91,4 +105,6 @@ Speaker: Player
 	Why did we have to live in the middle of nowhere?
 
 Speaker: None
-	[ You slam your first against the rock next to you, but as you a flame bursts out from your fist and dissipates into the air around you. ]
+	[ You slam your first against the rock next to you, but as you do, a flame bursts out from your fist and dissipates into the air around you. ]
+	[ You spend a brief moment, staring at your hand amazed at what had happened. ]
+	[ After that moment, you realize that your mother is still hurt, pick her up, and quickly take her to the nearest town for help. ]
