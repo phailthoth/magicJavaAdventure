@@ -1,6 +1,5 @@
 package magicJavaAdventure;
 import java.io.*;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -10,9 +9,12 @@ import java.io.File;
 import java.io.IOException;
 
 public class mainWindow {
-	private int backgroundNum = 0;
 	private static JFrame frame;
-	static JLabel background = new JLabel(new ImageIcon());
+	static Toolkit t = Toolkit.getDefaultToolkit();
+	static Image img = t.getImage("magicJavaAdventure/resources/treetrail.jpg");
+	//static Image img = ImageIO.read("magicJavaAdventure/resources/treetrail.jpg");
+	//static ImageIcon image = new ImageIcon("/magicJavaAdventure/resources/treetrail.jpg");
+	static JLabel background = new JLabel();
 	static Panel panel = new Panel();
 	/**
 	 * Launch the application.
@@ -24,7 +26,7 @@ public class mainWindow {
 					mainWindow window = new mainWindow();
 					window.frame.setVisible(true);
 					frame.add(panel);
-					panel.add(background);
+					panel.add(background, t.createImage("magicJavaAdventure/resources/treetrail.jpg"));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,7 +50,4 @@ public class mainWindow {
 		// we're doing 800x600
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	ImageIcon icon = new ImageIcon("/magicJavaAdventureresources/treetrail.jpg");
-
 }
