@@ -1,14 +1,16 @@
 package magicJavaAdventure;
 
 public class WordScroll {
-	String a = "yolo and swag and stuff im soudning weird";
-	public char scroll()
+	String a = "ITS stuff and stuff im sounding weird :P";
+	char c;
+	int x;
+	public void setPosition(int y)
 	{
-		char c = 0;
-		for(int x=0; x>= a.length(); x++)
-		{
-			
-		}
-		return 's';
+		x = y;
+	}
+	public char getChar()
+	{
+		
+		return 0;
 	}
 }

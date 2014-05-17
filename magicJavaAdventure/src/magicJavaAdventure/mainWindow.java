@@ -26,7 +26,7 @@ public class mainWindow {
 					mainWindow window = new mainWindow();
 					window.frame.setVisible(true);
 					frame.add(panel);
-					panel.add(background, t.createImage("magicJavaAdventure/resources/treetrail.jpg"));
+					panel.add(new JLabel( new ImageIcon("path/magicJavaAdventure/resources/treetrail.jpg")));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
