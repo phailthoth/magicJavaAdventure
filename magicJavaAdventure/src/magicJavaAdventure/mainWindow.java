@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class mainWindow implements ActionListener,KeyListener
+public class mainWindow implements ActionListener
 {
 	private static JFrame frame;
 	static Image img = null;
@@ -18,6 +18,8 @@ public class mainWindow implements ActionListener,KeyListener
 	private boolean isButtonPressed = false;
 	static Panel panel = new Panel();
 	static TextField text = new TextField(40);
+	static JLabel t = new JLabel();
+	static Color lightBlue = new Color(159, 179, 219);
 	
 	public static void initializeImage() throws Exception
 	{
@@ -30,10 +32,10 @@ public class mainWindow implements ActionListener,KeyListener
 	 */
 	public static void main(String[] args)
 	{
-		//EventQueue.invokeLater(new Runnable() 
-		//{
-			//public void run() 
-			//{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
 				try 
 				{
 					initializeImage();
@@ -43,14 +45,15 @@ public class mainWindow implements ActionListener,KeyListener
 					frame.add(panel);
 					//panel.add(background);
 					mainWindow.addButton("ENTER");
+					panel.add(t);
 				} 
 				catch (Exception e) 
 				{
 					e.printStackTrace();
 				}
-			//}
-		//}
-		//);
+			}
+		}
+		);
 	}
 
 	/**
@@ -67,6 +70,7 @@ public class mainWindow implements ActionListener,KeyListener
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
 		// we're doing 800x600
+		frame.getContentPane().setBackground(lightBlue);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//makes the jframe actually terminate after pressing "X"
 	}
@@ -82,43 +86,27 @@ public class mainWindow implements ActionListener,KeyListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		isButtonPressed = true;
+		/*
 		if(text.getText().equals("hello"))
 		{
-			text.setText("hello back at ya!");
+			t.setText("hello back at ya!");
 		}
 		else if(text.getText().equals("hi"))
 		{
-			text.setText("hi there!");
+			t.setText("hi there!");
 		}
 		else if(text.getText().equals("how are you?"))
 		{
-			text.setText("im great thx");
+			t.setText("im great thx");
 		}
 		else if(text.getText().equals("what is 1 + 1?"))
 		{
-			text.setText("29");
+			t.setText("29");
 		}
 		else
 		{
-			text.setText("you typed something that I do not recognize");
+			t.setText("you typed something that I do not recognize");
 		}
-	}
-
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		text.setText("YOU PRESSED A KEY");
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		text.setText("YOU RELEASED A KEY");
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		text.setText("YOU TYPED A KEY");
-		
+		*/
 	}
 }
