@@ -54,6 +54,22 @@ Speaker: None
 
 Path 1 ( Force Magics ) :
 
+// change background to a kitchen with main focus on a door
+
+Speaker : Player
+	Phew, I'm almost out of here.
+
+Speaker : None
+	[ Suddenly, a flaming pillar, one simlar to the one which had crushed your mom, falls in your way - blocking the door. ]
+
+Speaker : Player
+	DANG IT ! 
+
+Speaker : None
+	[ Out of rage, you punch the pillar. ]
+	[ However, before your hand hits the pillar, a shimering light erupts from the space inbetween, and a circle suddenly emmits from the space as well. ]
+	[ Suddenly, an immense force knocks the pillar, and everything behind it, foreward and leaves a whole in your house. ]
+	[ You stand quietly in amazement, at your hand, before running out, leaving everything behind. ]
 
 
 Path 2 ( Light Manipulation ) : 
