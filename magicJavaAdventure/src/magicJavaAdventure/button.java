@@ -1,22 +1,19 @@
-package magicJavaAdventure;
+private void buttonMousePressed(java.awt.event.MouseEvent evt){
+	ImageIcon buttonIcon = new ImageIcon(getClass().getResource(""));
+	button.setIcon(buttonIcon);
+}
 
-public class button {
-	int color, pos, num, text;
-	public button(int a, int b, int c, int d){
-		color = a;
-		num = b;
-		pos = c;
-		text = d;
-	}
-	
-	public void set(int a, int b, int c, int d){
-		color = a;
-		num = b;
-		pos = c;
-		text = d;
-	}
-	
-	public void init(){
-		// We need to start rendering here.
-	}
+private void buttonMouseReleased(java.awt.event.MouseEvent evt){
+	ImageIcon buttonIcon = new ImageIcon(getClass().getResource(""));
+	button.setIcon(buttonIcon);
+}
+
+private void buttonMouseEntered(java.awt.event.MouseEvent evt){
+	ImageIcon buttonIcon = new ImageIcon(getClass().getResource(""));
+	button.setIcon(buttonIcon);
+}
+
+private void buttonMouseExited(java.awt.event.MouseEvent evt){
+	ImageIcon buttonIcon = new ImageIcon(getClass().getResource(""));
+	button.setIcon(buttonIcon);
 }
