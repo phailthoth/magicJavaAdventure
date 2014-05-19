@@ -20,6 +20,8 @@ public class mainWindow implements ActionListener
 	static TextField text = new TextField(40);
 	static JLabel t = new JLabel();
 	static Color lightBlue = new Color(159, 179, 219);
+	static String[] story = {"stuff", "poop", };
+	static int lineNum;
 	
 	public static void initializeImage() throws Exception
 	{
@@ -43,7 +45,7 @@ public class mainWindow implements ActionListener
 					mainWindow.frame.setVisible(true);
 					JLabel background = new JLabel(new ImageIcon(img));
 					frame.add(panel);
-					//panel.add(background);
+					panel.add(background);
 					mainWindow.addButton("ENTER");
 					panel.add(t);
 				} 
@@ -59,16 +61,13 @@ public class mainWindow implements ActionListener
 	/**
 	 * Create the application.
 	 */
-	public mainWindow() {
-		initialize();
-	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private static void initialize() {
+	private static void initialize() 
+	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
+		frame.setBounds(100, 100, 800, 700);
 		// we're doing 800x600
 		frame.getContentPane().setBackground(lightBlue);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,31 +81,18 @@ public class mainWindow implements ActionListener
 		panel.add(text);
 		panel.add(btn);
 	}
-
+	public void addLine(int x)
+	{
+		t.setText(story[x]);
+	}
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		isButtonPressed = true;
-		/*
-		if(text.getText().equals("hello"))
+	public void actionPerformed(ActionEvent e) 
+	{
+		addLine(lineNum);
+		if(lineNum < story.length - 1)
 		{
-			t.setText("hello back at ya!");
+			lineNum ++;
 		}
-		else if(text.getText().equals("hi"))
-		{
-			t.setText("hi there!");
-		}
-		else if(text.getText().equals("how are you?"))
-		{
-			t.setText("im great thx");
-		}
-		else if(text.getText().equals("what is 1 + 1?"))
-		{
-			t.setText("29");
-		}
-		else
-		{
-			t.setText("you typed something that I do not recognize");
-		}
-		*/
+		
 	}
 }
