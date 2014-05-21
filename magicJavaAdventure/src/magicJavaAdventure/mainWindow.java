@@ -14,13 +14,23 @@ public class mainWindow implements ActionListener
 {
 	private static JFrame frame;
 	static Image img = null;
-	static Button btn;
+	static JButton btn;
 	private boolean isButtonPressed = false;
 	static Panel panel = new Panel();
 	static TextField text = new TextField(40);
 	static JLabel t = new JLabel();
+	static String name = "Jeffery";
 	static Color lightBlue = new Color(159, 179, 219);
-	static String[] story = {"stuff", "poop", };
+	static String[] story = 
+	{
+		"[ Fire crackles, burns, and eats up everything around you ]", 
+		"Speaker: "+name+" - Mom? Dad? [ cough ] Where are you?",
+		"[ You run out the door, hoping to find your parents. However, you don't see them. ]",
+		"Speaker: Player "+name+" - MOM? DAD?",
+	};
+	static String[] path1 = {};
+	static String[] path2 = {};
+	static String[] path3 = {};
 	static int lineNum;
 	
 	public static void initializeImage() throws Exception
@@ -40,13 +50,14 @@ public class mainWindow implements ActionListener
 			{
 				try 
 				{
+					text.setText("Add your character's name here");
 					initializeImage();
 					initialize();
 					mainWindow.frame.setVisible(true);
 					JLabel background = new JLabel(new ImageIcon(img));
 					frame.add(panel);
 					panel.add(background);
-					mainWindow.addButton("ENTER");
+					mainWindow.addButton("NEXT");
 					panel.add(t);
 				} 
 				catch (Exception e) 
@@ -76,7 +87,7 @@ public class mainWindow implements ActionListener
 	
 	public static void addButton(String title)
 	{
-		btn = new Button(title);
+		btn = new JButton(title);
 		btn.addActionListener(new mainWindow());
 		panel.add(text);
 		panel.add(btn);
@@ -88,10 +99,22 @@ public class mainWindow implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		addLine(lineNum);
-		if(lineNum < story.length - 1)
+		/*
+		if(!(text.getText().equals(" ")) && !(text.getText().equals("Add your character's name here")))
 		{
-			lineNum ++;
+			name = text.getText();
+			text.setText(" ");
+			text.setVisible(false);
+			t.setText("Your name is now " + name + " ... Click NEXT");
+		}
+		*/
+		//else if(!(text.getText().equals("Add your character's name here")))
+		{
+			addLine(lineNum);
+			if(lineNum < story.length - 1)
+			{
+				lineNum ++;
+			}
 		}
 		
 	}
