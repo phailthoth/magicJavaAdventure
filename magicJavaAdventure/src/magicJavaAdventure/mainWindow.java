@@ -59,6 +59,7 @@ public class mainWindow implements ActionListener
 					panel.add(background);
 					mainWindow.addButton("NEXT");
 					panel.add(t);
+					refresh();
 				} 
 				catch (Exception e) 
 				{
@@ -117,5 +118,10 @@ public class mainWindow implements ActionListener
 			}
 		}
 		
+	}
+	
+	public static void refresh(){
+		frame.invalidate();
+		frame.validate();
 	}
 }
