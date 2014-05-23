@@ -10,17 +10,20 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class mainWindow implements ActionListener
+public class mainWindow
 {
 	private static JFrame frame;
+	private static JFrame buttonFrame;
 	static Image img = null;
 	static JButton btn;
-	private boolean isButtonPressed = false;
 	static Panel panel = new Panel();
 	//static TextField text = new TextField(40);
 	static JLabel t = new JLabel();
 	static String name = "Jeffery";
 	static Color lightBlue = new Color(159, 179, 219);
+	static boolean isPath1 = false;
+	static boolean isPath2 = false;
+	static boolean isPath3 = false;
 	static String[] story = 
 	{
 		"[ Fire crackles, burns, and eats up everything around you ]", 
@@ -59,7 +62,6 @@ public class mainWindow implements ActionListener
 					panel.add(background);
 					mainWindow.addButton("NEXT");
 					panel.add(t);
-					refresh();
 				} 
 				catch (Exception e) 
 				{
@@ -89,39 +91,57 @@ public class mainWindow implements ActionListener
 	public static void addButton(String title)
 	{
 		btn = new JButton(title);
-		btn.addActionListener(new mainWindow());
+		btn.addActionListener(new NextLine());
 		//panel.add(text);
 		panel.add(btn);
 	}
-	public void addLine(int x)
+	public static void addLine(int x)
 	{
 		t.setText(story[x]);
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) 
+	static class NextLine implements ActionListener
 	{
-		/*
-		if(!(text.getText().equals(" ")) && !(text.getText().equals("Add your character's name here")))
+		public void actionPerformed(ActionEvent e)
 		{
-			name = text.getText();
-			text.setText(" ");
-			text.setVisible(false);
-			t.setText("Your name is now " + name + " ... Click NEXT");
-		}
-		*/
-		//else if(!(text.getText().equals("Add your character's name here")))
-		{
-			addLine(lineNum);
-			if(lineNum < story.length - 1)
+		
+			/*
+			if(!(text.getText().equals(" ")) && !(text.getText().equals("Add your character's name here")))
 			{
-				lineNum ++;
+				name = text.getText();
+				text.setText(" ");
+				text.setVisible(false);
+				t.setText("Your name is now " + name + " ... Click NEXT");
+			*/
+			//else if(!(text.getText().equals("Add your character's name here")))
+			{
+				addLine(lineNum);
+				if(lineNum < story.length - 1)
+				{
+					lineNum ++;
+				}
+				else
+				{
+					askPaths();
+				}
 			}
 		}
-		
-	}
-	
-	public static void refresh(){
-		frame.invalidate();
-		frame.validate();
+		static class Path1 implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				isPath1 = true;
+			}
+			
+		}
+		public static void askPaths()
+		{
+			JButton p1 = new JButton("Path1");
+			p1.addActionListener(new Path1());
+			//buttonFrame.setVisible(true);
+			buttonFrame.setBounds(100, 100, 600, 700);
+			buttonFrame.add(p1);
+		}
 	}
 }
