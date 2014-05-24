@@ -13,9 +13,11 @@ import java.io.IOException;
 public class mainWindow
 {
 	private static JFrame frame;
-	private static JFrame buttonFrame;
 	static Image img = null;
 	static JButton btn;
+	static JButton p1 = new JButton("Path1");
+	static JButton p2 = new JButton("Path2");
+	static JButton p3 = new JButton("Path3");
 	static Panel panel = new Panel();
 	//static TextField text = new TextField(40);
 	static JLabel t = new JLabel();
@@ -31,9 +33,9 @@ public class mainWindow
 		"[ You run out the door, hoping to find your parents. However, you don't see them. ]",
 		"Speaker: "+name+" - MOM? DAD?",
 	};
-	static String[] path1 = {};
-	static String[] path2 = {};
-	static String[] path3 = {};
+	static String[] path1 = {"noodles", "and cake"};
+	static String[] path2 = {"stuff", "kewl"};
+	static String[] path3 = {"other stuff", "points"};
 	static int lineNum;
 	
 	public static void initializeImage() throws Exception
@@ -81,7 +83,7 @@ public class mainWindow
 	private static void initialize() 
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 700);
+		frame.setBounds(0,0, 800, 700);
 		// we're doing 800x600
 		frame.getContentPane().setBackground(lightBlue);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,25 +105,17 @@ public class mainWindow
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-		
-			/*
-			if(!(text.getText().equals(" ")) && !(text.getText().equals("Add your character's name here")))
-			{
-				name = text.getText();
-				text.setText(" ");
-				text.setVisible(false);
-				t.setText("Your name is now " + name + " ... Click NEXT");
-			*/
-			//else if(!(text.getText().equals("Add your character's name here")))
 			{
 				addLine(lineNum);
 				if(lineNum < story.length - 1)
 				{
 					lineNum ++;
 				}
-				else
+				else if(isPath1 == false && isPath2 == false && isPath3 == false)
 				{
 					askPaths();
+					btn.setVisible(false);
+					lineNum = 0;
 				}
 			}
 		}
@@ -132,16 +126,58 @@ public class mainWindow
 			public void actionPerformed(ActionEvent e)
 			{
 				isPath1 = true;
+				p1.setVisible(false);
+				p2.setVisible(false);
+				p3.setVisible(false);
+				btn.setVisible(true);
+				story = path1;
+				addLine(0);
+				lineNum++;
 			}
-			
+		}
+		static class Path2 implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				isPath2 = true;
+				p1.setVisible(false);
+				p2.setVisible(false);
+				p3.setVisible(false);
+				btn.setVisible(true);
+				story = path2;
+				addLine(0);
+				lineNum++;
+			}
+		}
+		static class Path3 implements ActionListener
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				isPath3 = true;
+				p1.setVisible(false);
+				p2.setVisible(false);
+				p3.setVisible(false);
+				btn.setVisible(true);
+				story = path3;
+				addLine(0);
+				lineNum++;
+			}
 		}
 		public static void askPaths()
 		{
-			JButton p1 = new JButton("Path1");
 			p1.addActionListener(new Path1());
-			//buttonFrame.setVisible(true);
-			buttonFrame.setBounds(100, 100, 600, 700);
-			buttonFrame.add(p1);
+			p2.addActionListener(new Path2());
+			p3.addActionListener(new Path3());
+			p1.setVisible(true);
+			p2.setVisible(true);
+			p3.setVisible(true);
+			panel.add(p1);
+			panel.add(p2);
+			panel.add(p3);
 		}
 	}
 }
