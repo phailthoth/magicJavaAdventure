@@ -73,7 +73,10 @@ public class newMainWindow extends JFrame{
 	
 	public static void setText(){
 		// text for story later.
-		s++; t++;
+		if(t < story.length - 1 || s < speak.length - 1)
+		{
+			s++; t++;
+		}
 		speaker.setText(speak[s]);
 		text.setText(story[t]);
 		refresh();
