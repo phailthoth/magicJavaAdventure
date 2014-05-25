@@ -10,7 +10,8 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class newMainWindow extends JFrame{
 	// program variables
-	public static JFrame frame = new JFrame();
+	public static JFrame frame = new JFrame("Magic Java Adventure Story Thing - Eric is Bad With Titles");
+	public static JFrame choice = new JFrame("Choose a choice");
 	public static JPanel click = new JPanel();
 	public static JLayeredPane panel = new JLayeredPane();
 	public static JLabel speaker = new JLabel();
@@ -34,8 +35,9 @@ public class newMainWindow extends JFrame{
 	//public static Image img;
 	public static ImageIcon img;
 	public static void init() throws Exception{
-		// sets frame up for initial start up
-		frame = new JFrame("Magic Java Adventure Story Thing - Eric is Bad With Titles");
+		// just to be sure we can't see it
+		choice.setVisible(false);
+		choice.setBounds(550,300,600,200);
 		frame.setBounds(350, 150, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close it, close it, close it!
 		frame.setResizable(false); // we want it at 800x600, no need to let user change it.
@@ -52,9 +54,7 @@ public class newMainWindow extends JFrame{
 		click.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent m) {
 				setText();
-			}
-		}
-		);
+			}});
 		setFont();
 		setText();
 		position();
