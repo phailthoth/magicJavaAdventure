@@ -23,12 +23,32 @@ public class newMainWindow extends JFrame{
 		"Mom? Dad? [ cough ] Where are you?",
 		"<html>[ You run out the door, hoping to find your parents.<br /> However, you don't see them. ]</html>",
 		"MOM? DAD?",
+		"[ You look around frantically, continually looking for them but can't. ]",
+		"[ You kneel down, sobbing woefully at your loss. ]",
+		"[ Suddenly, you hear a voice calling your name. ]",
+		"[ You turn around, and see your mom. ]",
+		"JEFFERY ! ",
+		"Mom !",
+		"[ You run towards your mom, back inside of the house. ]",
+		"[ Suddenly, a burning pillar breaks from the ceiling, above you, and crushes your mother. ]",
+		"MOM ! ",
+		"Leave me, Jeffery! Live for your own life!",
 	};
 	public static String[] speak = {
 		"",
 		"Jeffery:",
 		"",
 		"Jeffery",
+		"",
+		"",
+		"",
+		"",
+		"Mom",
+		"Jeffery",
+		"",
+		"",
+		"Jeferry",
+		"Mom",
 	};
 	public static String[] storya = {
 		"<html>[ More debris suddenly fall behind you, blocking your way out through the front door.&nbsp;]</html>",
@@ -385,5 +405,4 @@ public class newMainWindow extends JFrame{
 		}
 		
 	}
-	
 }
