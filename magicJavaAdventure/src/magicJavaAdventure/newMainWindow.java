@@ -4,11 +4,10 @@ package magicJavaAdventure;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-
 import javax.swing.*;
 
-@SuppressWarnings("serial")
 public class newMainWindow extends JFrame{
+	private static final long serialVersionUID = 8350489385347005763L;
 	// program variables
 	public static JFrame frame = new JFrame("Magic Java Adventure Story Thing - Eric is Bad With Titles");
 	//public static JFrame choice = new JFrame("Choose a choice");
@@ -177,8 +176,7 @@ public class newMainWindow extends JFrame{
 	
 	public static void setBackground() throws Exception{
 		// attempt at making this more flexible later on. Might do it base on variable value.
-		ImageIcon img = new ImageIcon("resources/treetrail.jpg");
-		background.setIcon(img);
+		background.setIcon(new ImageIcon("resources/treetrail.jpg"));
 		panel.add(background, new Integer (1),0);
 		Dimension size;
 		size = background.getPreferredSize();
