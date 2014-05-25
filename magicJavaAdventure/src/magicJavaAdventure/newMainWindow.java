@@ -383,7 +383,7 @@ public class newMainWindow extends JFrame{
 		// absolute positioning, because we need it on top of the background.
 		Dimension size;
 		size = speaker.getPreferredSize();
-		speaker.setBounds(50, 450, size.width, size.height);
+		speaker.setBounds(50, 450, 100, size.height);
 		size = text.getPreferredSize();
 		text.setBounds(120, 470, 520, 60);
 		click.setBounds(0,0,800,600);
