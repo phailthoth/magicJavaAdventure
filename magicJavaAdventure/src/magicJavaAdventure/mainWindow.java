@@ -13,12 +13,15 @@ import java.io.IOException;
 public class mainWindow
 {
 	private static JFrame frame;
+	//static JOptionPane frame2 = new JOptionPane("Choose:");
+	static JFrame frame2 = new JFrame("Choose:");
 	static Image img = null;
 	static JButton btn;
 	static JButton p1 = new JButton("Path1");
 	static JButton p2 = new JButton("Path2");
 	static JButton p3 = new JButton("Path3");
 	static Panel panel = new Panel();
+	static Panel panel2 = new Panel();
 	//static TextField text = new TextField(40);
 	static JLabel t = new JLabel();
 	static String name = "Jeffery";
@@ -133,6 +136,7 @@ public class mainWindow
 				story = path1;
 				addLine(0);
 				lineNum++;
+				frame2.dispose();
 			}
 		}
 		static class Path2 implements ActionListener
@@ -149,6 +153,7 @@ public class mainWindow
 				story = path2;
 				addLine(0);
 				lineNum++;
+				frame2.dispose();
 			}
 		}
 		static class Path3 implements ActionListener
@@ -165,19 +170,23 @@ public class mainWindow
 				story = path3;
 				addLine(0);
 				lineNum++;
+				frame2.dispose();
 			}
 		}
 		public static void askPaths()
 		{
+			frame2.setVisible(true);
+			frame2.setBounds(100, 100, 600, 100);
 			p1.addActionListener(new Path1());
 			p2.addActionListener(new Path2());
 			p3.addActionListener(new Path3());
 			p1.setVisible(true);
 			p2.setVisible(true);
 			p3.setVisible(true);
-			panel.add(p1);
-			panel.add(p2);
-			panel.add(p3);
+			frame2.add(panel2);
+			panel2.add(p1);
+			panel2.add(p2);
+			panel2.add(p3);
 		}
 	}
 }
