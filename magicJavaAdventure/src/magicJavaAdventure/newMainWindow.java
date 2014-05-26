@@ -34,7 +34,7 @@ public class newMainWindow extends JFrame{
 		"<html>Leave me, Jeffery! Live for your own life!</html>",
 	};
 	public static String[] speak = {
-		"",
+		" ",
 		"Jeffery:",
 		"",
 		"Jeffery",
@@ -69,7 +69,7 @@ public class newMainWindow extends JFrame{
 		"<html>[ You continue to lift off the pillar of wood off of your mother, until it's completely off her, and toss the pillar to the side.&nbsp;]</html>",
 		"<html>[ You look down, and your mom has fainted, her body unable to withstand anymore pain.&nbsp;]</html>",
 		"<html>[ You pick up your mother, and quickly take her out of the house from the front door, behind you.&nbsp;]</html>",
-		"<html>[ Sigh&nbsp;] I need to find a place to get mom somewhere. Everyone is so far away!</html>",
+		"<html>[ Sigh ] I need to find a place to get mom somewhere. Everyone is so far away!</html>",
 		"<html>Why did we have to live in the middle of nowhere?</html>",
 		"<html>[ You slam your first against the rock next to you, but as you do, a flame bursts out from your fist and dissipates into the air around you.&nbsp;]</html>",
 		"<html>[ You spend a brief moment, staring at your hand amazed at what had happened.&nbsp;]</html>",
@@ -96,7 +96,7 @@ public class newMainWindow extends JFrame{
 		"<html>THE END</html>",
 	};
 	public static String[] speaka = {
-		"",
+		" ",
 		"",
 		""
 	};
@@ -115,7 +115,7 @@ public class newMainWindow extends JFrame{
 		"",
 		"",
 		"",
-		"",
+		"Jeffery",
 		"Jeffery",
 		"",
 		"",
@@ -158,7 +158,7 @@ public class newMainWindow extends JFrame{
 		newMainWindow.frame.setVisible(true);
 		frame.setBackground(Color.black);
 		frame.add(panel);
-		setBackground();
+		checkBackground();
 		speaker.setForeground(Color.white);
 		text.setForeground(Color.white);
 		panel.add(speaker, new Integer(3),0);
@@ -174,9 +174,39 @@ public class newMainWindow extends JFrame{
 		position();
 	}
 	
-	public static void setBackground() throws Exception{
-		// attempt at making this more flexible later on. Might do it base on variable value.
-		background.setIcon(new ImageIcon("resources/treetrail.jpg"));
+	public static void checkBackground(){
+		if(p == 0 && t == 0){
+			background.setIcon(new ImageIcon("resources/house.png"));
+			setBackground();
+		}
+		if(p == 1 && t == 2){
+			panel.remove(background);
+			background.setIcon(new ImageIcon("resources/hallway.png"));
+			setBackground();
+		}
+		if(p == 2 && t == 14){
+			panel.remove(background);
+			background.setIcon(new ImageIcon("resources/firebackground.png"));
+			setBackground();
+		}
+		if(p == 3 && t == 1){
+			panel.remove(background);
+			background.setIcon(new ImageIcon("resources/darkroom.png"));
+			setBackground();
+		}
+		if(p == 3 && t == 5){
+			panel.remove(background);
+			background.setIcon(new ImageIcon("resources/light.png"));
+			setBackground();
+		}
+		if(p == 4 && t == 1){
+			panel.remove(background);
+			background.setIcon(new ImageIcon("resources/kitchen.png"));
+			setBackground();
+		}
+	}
+	
+	public static void setBackground(){
 		panel.add(background, new Integer (1),0);
 		Dimension size;
 		size = background.getPreferredSize();
@@ -184,14 +214,16 @@ public class newMainWindow extends JFrame{
 		refresh();
 	}
 	
+	
 	public static void setText(){
 		// text for story later.
-		if(t < story.length - 1 || s < speak.length - 1)
+		if(t < story.length || s < speak.length)
 		{
-			s++; t++;
 			speaker.setText(speak[s]);
 			text.setText(story[t]);
+			checkBackground();
 			refresh();
+			s++; t++;
 		}
 		else{
 			setPath();
@@ -207,7 +239,6 @@ public class newMainWindow extends JFrame{
 		
 		story = blank;
 		speak = blank;
-		t = s = 0;
 		speaker.setText("");
 		text.setText("");
 		
@@ -223,6 +254,7 @@ public class newMainWindow extends JFrame{
 			ca.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent m) {
 					p = 1;
+					t = s = 0;
 					story = storya;
 					speak = speaka;
 					setText();
@@ -254,6 +286,7 @@ public class newMainWindow extends JFrame{
 			cb.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent m) {
 					p = 2;
+					t = s = 0;
 					story = storyb;
 					speak = speakb;
 					setText();
@@ -294,6 +327,7 @@ public class newMainWindow extends JFrame{
 			cc.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent m) {
 					p = 3;
+					t = s = 0;
 					story = storyc;
 					speak = speakc;
 					setText();
@@ -325,6 +359,7 @@ public class newMainWindow extends JFrame{
 			cd.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent m) {
 					p = 4;
+					t = s = 0;
 					story = storyd;
 					speak = speakd;
 					setText();
