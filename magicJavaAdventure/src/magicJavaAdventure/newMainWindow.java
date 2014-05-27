@@ -9,14 +9,16 @@ import javax.swing.*;
 public class newMainWindow extends JFrame{
 	private static final long serialVersionUID = 8350489385347005763L;
 	// program variables
-	public static JFrame frame = new JFrame("Magic Java Adventure Story Thing - Eric is Bad With Titles");
+	public static JFrame frame = new JFrame("Magic Java Adventure ! ");
 	//public static JFrame choice = new JFrame("Choose a choice");
 	public static JPanel click = new JPanel();
 	public static JLayeredPane panel = new JLayeredPane();
 	public static JLabel speaker = new JLabel();
 	public static JLabel text = new JLabel();
 	public static JLabel background = new JLabel();
-	public static int s, t, p;
+	public static JLabel instructionsa = new JLabel();
+	public static JLabel instructionsb = new JLabel();
+	public static int s, t, p, c;
 	public static String[] story = {
 		"<html>[ Fire crackles, burns, and eats up everything around you ]</html>", 
 		"<html>Mom? Dad? [ cough ] Where are you?.</html>",
@@ -149,9 +151,6 @@ public class newMainWindow extends JFrame{
 	//public static Image img;
 	public static ImageIcon img;
 	public static void init() throws Exception{
-		// just to be sure we can't see it, might not need it
-	//	choice.setVisible(false);
-	//	choice.setBounds(550,300,600,200);
 		frame.setBounds(350, 150, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close it, close it, close it!
 		frame.setResizable(false); // we want it at 800x600, no need to let user change it.
@@ -161,8 +160,11 @@ public class newMainWindow extends JFrame{
 		checkBackground();
 		speaker.setForeground(Color.white);
 		text.setForeground(Color.white);
-		panel.add(speaker, new Integer(3),0);
+		instructionsa.setForeground(Color.white);
+		instructionsb.setForeground(Color.white);
+		panel.add(speaker, new Integer(2),0);
 		panel.add(text, new Integer(2),0);
+		panel.add(instructionsa, new Integer(3),0);
 		panel.add(click, new Integer(4),0);
 		click.setOpaque(false);
 		click.addMouseListener(new MouseAdapter(){
@@ -170,6 +172,8 @@ public class newMainWindow extends JFrame{
 				setText();
 			}});
 		setFont();
+		instructionsa.setText("Click anywhere to continue . . .");
+		instructionsb.setText("Click a button to continue.");
 		setText();
 		position();
 	}
@@ -233,160 +237,176 @@ public class newMainWindow extends JFrame{
 	public static void setPath(){
 		Dimension size;
 		final JLabel back = new JLabel(new ImageIcon("resources/blackback.png"));
-		size = back.getPreferredSize();
-		back.setBounds(0,0,size.width,size.height);
-		panel.add(back, new Integer(5),0);
 		
-		story = blank;
-		speak = blank;
-		speaker.setText("");
-		text.setText("");
-		
-		if(p == 0){
-			// declaring choice buttons
-			final JLabel ca = new JLabel(new ImageIcon("resources/choicea/choice_a_default.png")); 
-			final JLabel cb = new JLabel(new ImageIcon("resources/choiceb/choice_b_default.png"));
+		if(c == 0){
+			size = back.getPreferredSize();
+			back.setBounds(0,0,size.width,size.height);
+			panel.add(back, new Integer(5),0);
 			
+			story = blank;
+			speak = blank;
+			speaker.setText("");
+			text.setText("");
 			
-			size = ca.getPreferredSize();
-			ca.setBounds(218,185,size.width,size.height);
-			panel.add(ca, new Integer (6),0);
-			ca.addMouseListener(new MouseAdapter(){
-				public void mouseClicked(MouseEvent m) {
-					p = 1;
-					t = s = 0;
-					story = storya;
-					speak = speaka;
-					setText();
-					back.setVisible(false);
-					ca.setVisible(false);
-					cb.setVisible(false);
-					panel.remove(back);
-					panel.remove(ca);
-					panel.remove(cb);
-					refresh();
-				}
-				public void mouseEntered(MouseEvent m){
-					ca.setIcon(new ImageIcon("resources/choicea/choice_a_highlighted.png"));
-				}
-				public void mouseExited(MouseEvent m){
-					ca.setIcon(new ImageIcon("resources/choicea/choice_a_default.png"));
-				}
-				public void mousePressed(MouseEvent m){
-					ca.setIcon(new ImageIcon("resources/choicea/choice_a_pressed.png"));
-				}
-				public void mouseReleased(MouseEvent m){
-					ca.setIcon(new ImageIcon("resources/choicea/choice_a_default.png"));
-				}
-			});
+			c++;
 			
-			size = cb.getPreferredSize();
-			cb.setBounds(218,385,size.width,size.height);
-			panel.add(cb, new Integer (6),0);
-			cb.addMouseListener(new MouseAdapter(){
-				public void mouseClicked(MouseEvent m) {
-					p = 2;
-					t = s = 0;
-					story = storyb;
-					speak = speakb;
-					setText();
-					back.setVisible(false);
-					ca.setVisible(false);
-					cb.setVisible(false);
-					panel.remove(back);
-					panel.remove(ca);
-					panel.remove(cb);
-					refresh();
-				}
-				public void mouseEntered(MouseEvent m){
-					cb.setIcon(new ImageIcon("resources/choiceb/choice_b_highlighted.png"));
-				}
-				public void mouseExited(MouseEvent m){
-					cb.setIcon(new ImageIcon("resources/choiceb/choice_b_default.png"));
-				}
-				public void mousePressed(MouseEvent m){
-					cb.setIcon(new ImageIcon("resources/choiceb/choice_b_pressed.png"));
-				}
-				public void mouseReleased(MouseEvent m){
-					cb.setIcon(new ImageIcon("resources/choiceb/choice_b_default.png"));
-				}
-			});
+			if(p == 0){
+				panel.remove(instructionsa);
+				panel.add(instructionsb, new Integer(7),0);
+				// declaring choice buttons
+				final JLabel ca = new JLabel(new ImageIcon("resources/choicea/choice_a_default.png")); 
+				final JLabel cb = new JLabel(new ImageIcon("resources/choiceb/choice_b_default.png"));
+				
+				
+				size = ca.getPreferredSize();
+				ca.setBounds(218,185,size.width,size.height);
+				panel.add(ca, new Integer (6),0);
+				ca.addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent m) {
+						p = 1;
+						t = s = 0;
+						story = storya;
+						speak = speaka;
+						setText();
+						back.setVisible(false);
+						ca.setVisible(false);
+						cb.setVisible(false);
+						instructionsb.setVisible(false);
+						panel.remove(back);
+						panel.remove(ca);
+						panel.remove(cb);
+						panel.remove(instructionsb);
+						refresh();
+						c--;
+					}
+					public void mouseEntered(MouseEvent m){
+						ca.setIcon(new ImageIcon("resources/choicea/choice_a_highlighted.png"));
+					}
+					public void mouseExited(MouseEvent m){
+						ca.setIcon(new ImageIcon("resources/choicea/choice_a_default.png"));
+					}
+					public void mousePressed(MouseEvent m){
+						ca.setIcon(new ImageIcon("resources/choicea/choice_a_pressed.png"));
+					}
+					public void mouseReleased(MouseEvent m){
+						ca.setIcon(new ImageIcon("resources/choicea/choice_a_default.png"));
+					}
+				});
+				
+				size = cb.getPreferredSize();
+				cb.setBounds(218,385,size.width,size.height);
+				panel.add(cb, new Integer (6),0);
+				cb.addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent m) {
+						p = 2;
+						t = s = 0;
+						story = storyb;
+						speak = speakb;
+						setText();
+						back.setVisible(false);
+						ca.setVisible(false);
+						cb.setVisible(false);
+						instructionsb.setVisible(false);
+						panel.remove(back);
+						panel.remove(ca);
+						panel.remove(cb);
+						panel.remove(instructionsb);
+						refresh();
+						c--;
+					}
+					public void mouseEntered(MouseEvent m){
+						cb.setIcon(new ImageIcon("resources/choiceb/choice_b_highlighted.png"));
+					}
+					public void mouseExited(MouseEvent m){
+						cb.setIcon(new ImageIcon("resources/choiceb/choice_b_default.png"));
+					}
+					public void mousePressed(MouseEvent m){
+						cb.setIcon(new ImageIcon("resources/choiceb/choice_b_pressed.png"));
+					}
+					public void mouseReleased(MouseEvent m){
+						cb.setIcon(new ImageIcon("resources/choiceb/choice_b_default.png"));
+					}
+				});
+			}
 			
-			refresh();
+			if(p == 1){
+				// declaring choice buttons
+				final JLabel cc = new JLabel(new ImageIcon("resources/choicec/choice_c_default.png")); 
+				final JLabel cd = new JLabel(new ImageIcon("resources/choiced/choice_d_default.png"));
+				
+				
+				size = cc.getPreferredSize();
+				cc.setBounds(218,185,size.width,size.height);
+				panel.add(cc, new Integer (6),0);
+				cc.addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent m) {
+						p = 3;
+						t = s = 0;
+						story = storyc;
+						speak = speakc;
+						setText();
+						back.setVisible(false);
+						cc.setVisible(false);
+						cd.setVisible(false);
+						panel.remove(back);
+						panel.remove(cc);
+						panel.remove(cd);
+						refresh();
+						c--;
+					}
+					public void mouseEntered(MouseEvent m){
+						cc.setIcon(new ImageIcon("resources/choicec/choice_c_highlighted.png"));
+					}
+					public void mouseExited(MouseEvent m){
+						cc.setIcon(new ImageIcon("resources/choicec/choice_c_default.png"));
+					}
+					public void mousePressed(MouseEvent m){
+						cc.setIcon(new ImageIcon("resources/choicec/choice_c_pressed.png"));
+					}
+					public void mouseReleased(MouseEvent m){
+						cc.setIcon(new ImageIcon("resources/choicec/choice_c_default.png"));
+					}
+				});
+				
+				size = cd.getPreferredSize();
+				cd.setBounds(218,385,size.width,size.height);
+				panel.add(cd, new Integer (6),0);
+				cd.addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent m) {
+						p = 4;
+						t = s = 0;
+						story = storyd;
+						speak = speakd;
+						setText();
+						back.setVisible(false);
+						cc.setVisible(false);
+						cd.setVisible(false);
+						panel.remove(back);
+						panel.remove(cc);
+						panel.remove(cd);
+						refresh();
+						c--;
+					}
+					public void mouseEntered(MouseEvent m){
+						cd.setIcon(new ImageIcon("resources/choiced/choice_d_highlighted.png"));
+					}
+					public void mouseExited(MouseEvent m){
+						cd.setIcon(new ImageIcon("resources/choiced/choice_d_default.png"));
+					}
+					public void mousePressed(MouseEvent m){
+						cd.setIcon(new ImageIcon("resources/choiced/choice_d_pressed.png"));
+					}
+					public void mouseReleased(MouseEvent m){
+						cd.setIcon(new ImageIcon("resources/choiced/choice_d_default.png"));
+					}
+				});
+			}
 		}
 		
-		if(p == 1){
-			// declaring choice buttons
-			final JLabel cc = new JLabel(new ImageIcon("resources/choicec/choice_c_default.png")); 
-			final JLabel cd = new JLabel(new ImageIcon("resources/choiced/choice_d_default.png"));
+		if(c == 1){
 			
-			
-			size = cc.getPreferredSize();
-			cc.setBounds(218,185,size.width,size.height);
-			panel.add(cc, new Integer (6),0);
-			cc.addMouseListener(new MouseAdapter(){
-				public void mouseClicked(MouseEvent m) {
-					p = 3;
-					t = s = 0;
-					story = storyc;
-					speak = speakc;
-					setText();
-					back.setVisible(false);
-					cc.setVisible(false);
-					cd.setVisible(false);
-					panel.remove(back);
-					panel.remove(cc);
-					panel.remove(cd);
-					refresh();
-				}
-				public void mouseEntered(MouseEvent m){
-					cc.setIcon(new ImageIcon("resources/choicec/choice_c_highlighted.png"));
-				}
-				public void mouseExited(MouseEvent m){
-					cc.setIcon(new ImageIcon("resources/choicec/choice_c_default.png"));
-				}
-				public void mousePressed(MouseEvent m){
-					cc.setIcon(new ImageIcon("resources/choicec/choice_c_pressed.png"));
-				}
-				public void mouseReleased(MouseEvent m){
-					cc.setIcon(new ImageIcon("resources/choicec/choice_c_default.png"));
-				}
-			});
-			
-			size = cd.getPreferredSize();
-			cd.setBounds(218,385,size.width,size.height);
-			panel.add(cd, new Integer (6),0);
-			cd.addMouseListener(new MouseAdapter(){
-				public void mouseClicked(MouseEvent m) {
-					p = 4;
-					t = s = 0;
-					story = storyd;
-					speak = speakd;
-					setText();
-					back.setVisible(false);
-					cc.setVisible(false);
-					cd.setVisible(false);
-					panel.remove(back);
-					panel.remove(cc);
-					panel.remove(cd);
-					refresh();
-				}
-				public void mouseEntered(MouseEvent m){
-					cd.setIcon(new ImageIcon("resources/choiced/choice_d_highlighted.png"));
-				}
-				public void mouseExited(MouseEvent m){
-					cd.setIcon(new ImageIcon("resources/choiced/choice_d_default.png"));
-				}
-				public void mousePressed(MouseEvent m){
-					cd.setIcon(new ImageIcon("resources/choiced/choice_d_pressed.png"));
-				}
-				public void mouseReleased(MouseEvent m){
-					cd.setIcon(new ImageIcon("resources/choiced/choice_d_default.png"));
-				}
-			});
-			
-			refresh();
 		}
+		
 	}
 	
 	public static void setFont(){
@@ -399,10 +419,14 @@ public class newMainWindow extends JFrame{
 		    // adds fonts
 		    ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/Calligraffitti-Regular.ttf")));
 		    ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/Metamorphous-Regular.ttf")));
-		    cali = cali.deriveFont(25.0f); // sets font size
+		    cali = cali.deriveFont(25.0f); // sets font size for text
 		    meta = meta.deriveFont(15.0f);
 		    speaker.setFont(cali); // setting fonts
 		    text.setFont(meta);
+		    cali = cali.deriveFont(25.0f); // sets font size for instructions
+		    meta = meta.deriveFont(10.0f);
+		    instructionsa.setFont(meta);
+		    instructionsb.setFont(cali);
 		} 
 		catch (IOException i) {
 			i.printStackTrace();
@@ -419,7 +443,9 @@ public class newMainWindow extends JFrame{
 		speaker.setBounds(50, 450, 100, size.height);
 		size = text.getPreferredSize();
 		text.setBounds(120, 470, 520, 60);
-		click.setBounds(0,0,800,600);
+		instructionsa.setBounds(600, 520, 200, 60);
+		instructionsb.setBounds(280, 80, 500, 60);
+		click.setBounds(0, 0, 800, 600);
 		refresh();
 	}
 	
@@ -430,7 +456,7 @@ public class newMainWindow extends JFrame{
 	
 	public static void main(String[] args) throws Exception{
 		try{
-			s = t = p = 0;
+			s = t = p = c = 0;
 			init();
 		}
 		catch (Exception e){
